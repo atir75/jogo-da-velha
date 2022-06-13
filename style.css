@@ -22,6 +22,8 @@ body {
     grid-template-columns: repeat(3, auto);
 }
 
+
+
 .cell {
     width: 100px;
     height: 100px;
@@ -36,7 +38,6 @@ body {
     border-top: none;
 }
 
-
 .cell:nth-child(1),
 .cell:nth-child(4),
 .cell:nth-child(7) {
@@ -49,11 +50,19 @@ body {
     border-bottom: none;
 }
 
-
 .cell:nth-child(3),
 .cell:nth-child(6),
 .cell:nth-child(9) {
     border-right: none;
+}
+
+/* X */
+.cell.X::before,
+.cell.X::after {
+    content: '';
+    height: 100px;
+    width: 100px;
+    background: black;
 }
 
 .winning-message {
