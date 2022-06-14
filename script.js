@@ -26,7 +26,6 @@ function jogar(id) {
     turno = checarTurno ? JOGADOR_X : JOGADOR_O;
     celula.textContent = turno;
     celula.classList.add(turno);
-    checarTurno = !checarTurno;
     checarVencedeor(turno);
 }
 
@@ -39,6 +38,37 @@ function checarVencedeor(turno) {
     });
 
     if (vencedor){
-        encerraJogo(turno);
+        encerrarJogo(turno);
+    } else if (checarEmpate()) {
+        encerrarJogo();
+    } else {
+        checarTurno = !checarTurno;
+    }
+}
+
+function checarEmpate() {
+    let x = 0;
+    let o = 0;
+
+    for (index in celulas) {
+        if(!isNaN(index)) {
+
+            if (celulas[index].classList.contains(JOGADOR_X)) {
+                x++;
+            }
+
+            if(celulas[index].classList.contains(JOGADOR_O)) {
+                o++;
+            }
+        }
+    }
+        return x + o === 9 ? true : false;
+}
+
+function encerrarJogo(vencedor = null) {
+    if (vencedor) {
+        console.log("Vencedor: " +vencedor);
+    } else {
+        console.log("Empatou");
     }
 }
