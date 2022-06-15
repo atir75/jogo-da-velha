@@ -77,8 +77,8 @@ function encerrarJogo(vencedor = null) {
 
 
     if (vencedor) {
-        h2.innerHTML = '0 player <span>${vencedor}</span> venceu'
+        h2.innerHTML = '0 player <span>${vencedor}</span> venceu';
     } else {
-        console.log("Empatou");
+        h2.innerHTML = "Empatou";
     }
 }
